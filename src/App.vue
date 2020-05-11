@@ -17,7 +17,7 @@
             <router-link :to="'hello2'" class="nav-link">Hello2</router-link>
           </li>
           <li class="nav-item">
-            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+            <router-link :to="{ name: 'List'}" class="nav-link">List</router-link>
           </li>
         </ul>
       </div>
