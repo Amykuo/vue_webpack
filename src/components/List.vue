@@ -1,21 +1,28 @@
 <template>
-  <div class="hello container-fluid mt-5">
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th scope="col">#</th>
-          <th scope="col">title</th>
-          <th scope="col">create time</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="(item, i) in listData">
-          <th scope="row">{{i + 1}}</th>
-          <td>{{ item.title }}</td>
-          <td>{{ item.created_at }}</td>
-        </tr>
-      </tbody>
-    </table>
+  <div class="hello container mt-5">
+    <div class="row">
+      <div class="col-8">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">title</th>
+              <th scope="col">create time</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="(item, i) in listData">
+              <th scope="row">{{i + 1}}</th>
+              <td>{{ item.title }}</td>
+              <td>{{ item.created_at }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-4">
+        右側
+      </div>
+    </div>
   </div>
 </template>
 
@@ -34,7 +41,7 @@ export default {
       vm.axios.get('http://lara-admin.amylab.tech/api/article')
         .then(function (response) {
           console.log(response);
-          vm.listData = response.data.success.article
+          vm.listData = response.data.data
         })
         .catch(function (error) { // 请求失败处理
           console.log(error);
